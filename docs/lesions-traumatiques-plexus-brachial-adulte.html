@@ -30,7 +30,7 @@
 .pediatrique{ --blue:#e67e22; --c-key:#e67e22; }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{
   margin:0;
   font-family:'Inter','Segoe UI',system-ui,sans-serif;
@@ -1276,6 +1276,54 @@ window.addEventListener("scroll",()=>{
     if(sec){const top=sec.offsetTop,h=sec.offsetHeight;link.classList.toggle("active",top<=fromTop && top+h>fromTop);}
   });
 },{passive:true});
+
+function devLabelDepth(li){
+  // profondeur = nombre de <li> ancêtres (dans le même tech-list) au-dessus de li, +1 ; plafonnée à 3
+  let depth=1, cur=li;
+  while(true){
+    const parentList=cur.parentElement;
+    if(!parentList) break;
+    const above=parentList.parentElement;
+    const parentLi=above && above.closest ? above.closest("li") : null;
+    if(!parentLi || !parentLi.closest(".tech-list")) break;
+    depth++;
+    cur=parentLi;
+  }
+  return Math.min(depth,3);
+}
+function firstSignificantNode(li){
+  for(const n of li.childNodes){
+    if(n.nodeType===3 && !n.textContent.trim()) continue; // ignore texte blanc
+    if(n.nodeType===1 || n.nodeType===3) return n;
+  }
+  return null;
+}
+function applyDevLabels(){
+  document.querySelectorAll(".tech-list li").forEach(li=>{
+    if(li.dataset.devlabeled) return;
+    const first=firstSignificantNode(li);
+    // le span-label doit être en tout début de <li> — un <span class="key-term"> au
+    // milieu d'une phrase (ex. "Dissection débutée au <span>...</span>") n'est PAS
+    // un label de branche et ne doit jamais être colorisé comme tel.
+    if(!first || first.nodeType!==1 || first.tagName!=="SPAN") return;
+    const hasChildList=li.querySelector(":scope > ul, :scope > ol");
+    let developed=!!hasChildList;
+    if(!developed){
+      // développement en ligne après ":" (ex. <span>Label</span> : texte explicatif...)
+      let node=first.nextSibling;
+      while(node && node.nodeType===3 && !node.textContent.trim()) node=node.nextSibling;
+      if(node && node.nodeType===3){
+        const t=node.textContent.trim();
+        if(t.charAt(0)===":" && t.length>4) developed=true;
+      }
+    }
+    if(!developed) return;
+    const depth=devLabelDepth(li);
+    first.classList.add("dev-label","dev-label-l"+depth);
+    li.dataset.devlabeled="1";
+  });
+}
+applyDevLabels();
 
 document.addEventListener("keydown",(e)=>{
   if(e.ctrlKey && e.key==="b"){e.preventDefault();sidebarToggle.click();}
