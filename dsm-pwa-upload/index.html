@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bibliothèque DES Ortho-Trauma</title>
+<meta name="description" content="Bibliothèque de polycopiés DES orthopédie-traumatologie : recherche, suivi de révision et accès hors-ligne complet.">
+<meta name="theme-color" content="#0A3D62">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-apple-touch.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="DES Ortho">
+<style>
+:root{
+  --blue:#0A3D62; --bg:#f5f6f8; --surface:#ffffff; --text:#1e272e; --text-dim:#5b6470;
+  --border:#e1e4e8; --rule:#d7dade;
+  --c-key:#2980b9;
+  --domain-orthopedie:#0A3D62; --domain-traumatologie:#c0392b; --domain-pediatrique:#e67e22;
+  --domain-infections:#16a085; --domain-tumeurs:#8e44ad;
+  --status-non-vu:#8a919b; --status-a-revoir:#d35400; --status-maitrise:#1e8449;
+  --shadow: 0 2px 10px rgba(20,30,45,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14181d; --surface:#1c2126; --text:#eef1f4; --text-dim:#a3acb8;
+    --border:#2c333b; --rule:#333b44; --shadow: 0 2px 14px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14181d; --surface:#1c2126; --text:#eef1f4; --text-dim:#a3acb8;
+  --border:#2c333b; --rule:#333b44; --shadow: 0 2px 14px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',system-ui,sans-serif;line-height:1.4}
+.wrap{max-width:920px;margin:0 auto;padding:calc(20px + env(safe-area-inset-top)) 16px 60px}
+
+.topbar{display:flex;flex-direction:column;gap:4px;margin-bottom:18px}
+.topbar h1{margin:0;font-size:1.35rem;font-weight:700;color:var(--blue)}
+@media (prefers-color-scheme:dark){ .topbar h1{color:#5fa8dd} }
+.topbar .sub{font-size:.82rem;color:var(--text-dim)}
+
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;position:sticky;top:0;background:var(--bg);padding:10px 0;z-index:10}
+.search-box{flex:1;min-width:180px;position:relative}
+.search-box input{width:100%;padding:9px 12px 9px 34px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:.9rem;font-family:inherit}
+.search-box input:focus{outline:2px solid var(--c-key);outline-offset:1px}
+.search-box svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);opacity:.5;width:15px;height:15px}
+.chip-row{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.chip{border:1px solid var(--border);background:var(--surface);color:var(--text-dim);border-radius:999px;padding:7px 13px;font-size:.78rem;font-weight:600;cursor:pointer;white-space:nowrap;font-family:inherit;transition:.15s}
+.chip:hover{border-color:var(--c-key)}
+.chip.active{background:var(--blue);border-color:var(--blue);color:#fff}
+
+.stats{display:flex;gap:14px;margin-bottom:14px;font-size:.76rem;color:var(--text-dim);flex-wrap:wrap}
+.stats b{color:var(--text)}
+
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow);border-left-width:5px;border-left-style:solid}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px}
+.card-title{font-weight:700;font-size:.98rem;line-height:1.3;margin:0}
+.card-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px}
+.badge{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:2px 8px;border-radius:5px;color:#fff}
+.region-tag{font-size:.72rem;color:var(--text-dim);padding:2px 0}
+
+.card-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.btn{border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:8px;padding:7px 12px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:.15s}
+.btn:hover{border-color:var(--c-key);color:var(--c-key)}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn.primary:hover{opacity:.9;color:#fff}
+
+.status-group{display:flex;gap:4px;margin-left:auto}
+.status-btn{border:1px solid var(--border);background:var(--surface);color:var(--text-dim);border-radius:7px;padding:6px 10px;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s}
+.status-btn[data-s="non-vu"].active{background:var(--status-non-vu);border-color:var(--status-non-vu);color:#fff}
+.status-btn[data-s="a-revoir"].active{background:var(--status-a-revoir);border-color:var(--status-a-revoir);color:#fff}
+.status-btn[data-s="maitrise"].active{background:var(--status-maitrise);border-color:var(--status-maitrise);color:#fff}
+
+.empty{text-align:center;padding:50px 20px;color:var(--text-dim);font-size:.9rem}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:9px 16px;border-radius:8px;font-size:.8rem;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;max-width:90vw;text-align:center}
+.toast.show{opacity:.94}
+
+.offline-badge{display:none;font-size:.72rem;background:var(--status-a-revoir);color:#fff;padding:3px 9px;border-radius:999px;font-weight:600;width:fit-content}
+body.is-offline .offline-badge{display:block}
+
+footer{margin-top:28px;text-align:center;font-size:.72rem;color:var(--text-dim)}
+
+@media (max-width:480px){
+  .wrap{padding:14px 12px 50px}
+  .status-group{margin-left:0;width:100%;justify-content:flex-start}
+  .card-actions{flex-direction:column;align-items:stretch}
+  .btn{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="topbar">
+    <h1>📚 Bibliothèque DES Orthopédie-Traumatologie</h1>
+    <div class="sub">Recherche, suivi de révision et accès hors-ligne — fonctionne sans connexion</div>
+    <span class="offline-badge" id="offline-badge">Hors-ligne — contenu en cache</span>
+  </div>
+
+  <div class="controls">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="search" placeholder="Rechercher un cours, une région, un domaine…" autocomplete="off">
+    </div>
+  </div>
+  <div class="chip-row" id="domain-filters"></div>
+  <div class="chip-row" id="status-filters" style="margin-top:8px"></div>
+
+  <div class="stats" id="stats"></div>
+
+  <div id="list"></div>
+  <div class="empty" id="empty" style="display:none">Aucun polycopié ne correspond à cette recherche.</div>
+
+  <footer>Bibliothèque en construction — mise à jour automatiquement à chaque nouveau cours approuvé.</footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const DOMAIN_COLORS = {
+  orthopedie: "var(--domain-orthopedie)",
+  traumatologie: "var(--domain-traumatologie)",
+  pediatrique: "var(--domain-pediatrique)",
+  infections: "var(--domain-infections)",
+  tumeurs: "var(--domain-tumeurs)"
+};
+const STATUS_LABELS = { "non-vu": "Non vu", "a-revoir": "À revoir", "maitrise": "Maîtrisé" };
+const PROGRESS_KEY = "dsm-progress-v1";
+
+let DOCS = [];
+let progress = {};
+let activeDomain = null;
+let activeStatus = null;
+
+function loadProgress(){
+  try{ progress = JSON.parse(localStorage.getItem(PROGRESS_KEY) || "{}"); }
+  catch(e){ progress = {}; }
+}
+function saveProgress(){
+  try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress)); }
+  catch(e){ /* storage unavailable — state still works for this page load */ }
+}
+
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(t._h);
+  t._h = setTimeout(()=>t.classList.remove("show"), 2200);
+}
+
+function renderFilters(){
+  const domains = [...new Set(DOCS.map(d=>d.domain))];
+  const domainRow = document.getElementById("domain-filters");
+  domainRow.innerHTML = "";
+  const allChip = document.createElement("button");
+  allChip.className = "chip" + (activeDomain===null ? " active":"");
+  allChip.textContent = "Tous les domaines";
+  allChip.onclick = ()=>{ activeDomain = null; renderFilters(); renderList(); };
+  domainRow.appendChild(allChip);
+  domains.forEach(dm=>{
+    const doc = DOCS.find(d=>d.domain===dm);
+    const chip = document.createElement("button");
+    chip.className = "chip" + (activeDomain===dm ? " active":"");
+    chip.textContent = doc.domainLabel;
+    chip.onclick = ()=>{ activeDomain = (activeDomain===dm ? null : dm); renderFilters(); renderList(); };
+    domainRow.appendChild(chip);
+  });
+
+  const statusRow = document.getElementById("status-filters");
+  statusRow.innerHTML = "";
+  const allS = document.createElement("button");
+  allS.className = "chip" + (activeStatus===null ? " active":"");
+  allS.textContent = "Tous les statuts";
+  allS.onclick = ()=>{ activeStatus = null; renderFilters(); renderList(); };
+  statusRow.appendChild(allS);
+  Object.keys(STATUS_LABELS).forEach(s=>{
+    const chip = document.createElement("button");
+    chip.className = "chip" + (activeStatus===s ? " active":"");
+    chip.textContent = STATUS_LABELS[s];
+    chip.onclick = ()=>{ activeStatus = (activeStatus===s ? null : s); renderFilters(); renderList(); };
+    statusRow.appendChild(chip);
+  });
+}
+
+function matchesSearch(doc, q){
+  if(!q) return true;
+  q = q.toLowerCase();
+  const hay = [doc.title, doc.domainLabel, doc.region, doc.kind, ...(doc.tags||[])].join(" ").toLowerCase();
+  return hay.includes(q);
+}
+
+function renderStats(){
+  const total = DOCS.length;
+  const counts = { "non-vu":0, "a-revoir":0, "maitrise":0 };
+  DOCS.forEach(d=>{
+    const s = (progress[d.id] && progress[d.id].status) || "non-vu";
+    counts[s] = (counts[s]||0) + 1;
+  });
+  document.getElementById("stats").innerHTML =
+    `<span><b>${total}</b> cours</span>` +
+    `<span><b>${counts["maitrise"]}</b> maîtrisés</span>` +
+    `<span><b>${counts["a-revoir"]}</b> à revoir</span>` +
+    `<span><b>${counts["non-vu"]}</b> non vus</span>`;
+}
+
+function renderList(){
+  const q = document.getElementById("search").value.trim();
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+  const filtered = DOCS.filter(d=>{
+    if(activeDomain && d.domain !== activeDomain) return false;
+    const st = (progress[d.id] && progress[d.id].status) || "non-vu";
+    if(activeStatus && st !== activeStatus) return false;
+    return matchesSearch(d, q);
+  });
+  document.getElementById("empty").style.display = filtered.length ? "none" : "block";
+
+  filtered.forEach(doc=>{
+    const st = (progress[doc.id] && progress[doc.id].status) || "non-vu";
+    const el = document.createElement("div");
+    el.className = "card";
+    el.style.borderLeftColor = DOMAIN_COLORS[doc.domain] || "var(--c-key)";
+    el.innerHTML = `
+      <div class="card-top">
+        <div>
+          <p class="card-title">${doc.title}</p>
+          <div class="card-meta">
+            <span class="badge" style="background:${DOMAIN_COLORS[doc.domain]||'#555'}">${doc.domainLabel}</span>
+            <span class="region-tag">${doc.region} · ${doc.kind}</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn primary" href="${doc.file}">Ouvrir</a>
+        <div class="status-group" data-statusgroup="${doc.id}">
+          <button class="status-btn" data-s="non-vu">Non vu</button>
+          <button class="status-btn" data-s="a-revoir">À revoir</button>
+          <button class="status-btn" data-s="maitrise">Maîtrisé</button>
+        </div>
+      </div>
+    `;
+    el.querySelectorAll(`[data-statusgroup="${doc.id}"] .status-btn`).forEach(btn=>{
+      if(btn.dataset.s === st) btn.classList.add("active");
+      btn.onclick = ()=> setStatus(doc.id, btn.dataset.s);
+    });
+    list.appendChild(el);
+  });
+}
+
+function setStatus(docId, status){
+  progress[docId] = { status, updatedAt: new Date().toISOString() };
+  saveProgress();
+  renderList();
+  renderStats();
+  toast("Statut enregistré : " + STATUS_LABELS[status]);
+}
+
+function updateOfflineBadge(){
+  document.body.classList.toggle("is-offline", !navigator.onLine);
+}
+
+async function init(){
+  loadProgress();
+  try{
+    const res = await fetch("docs-manifest.json", { cache: "no-store" });
+    const manifest = await res.json();
+    DOCS = manifest.docs || [];
+  }catch(e){
+    try{
+      const res = await fetch("docs-manifest.json");
+      const manifest = await res.json();
+      DOCS = manifest.docs || [];
+    }catch(e2){ DOCS = []; }
+  }
+  renderFilters();
+  renderList();
+  renderStats();
+  document.getElementById("search").addEventListener("input", renderList);
+
+  updateOfflineBadge();
+  window.addEventListener("online", updateOfflineBadge);
+  window.addEventListener("offline", updateOfflineBadge);
+
+  if("serviceWorker" in navigator){
+    navigator.serviceWorker.register("sw.js").then(reg=>{
+      reg.addEventListener("updatefound", ()=>{
+        const nw = reg.installing;
+        if(!nw) return;
+        nw.addEventListener("statechange", ()=>{
+          if(nw.state === "activated"){
+            toast("Bibliothèque mise à jour — nouveau contenu disponible");
+          }
+        });
+      });
+    }).catch(()=>{ /* offline support unavailable — app still works online */ });
+  }
+}
+init();
+</script>
+</body>
+</html>
