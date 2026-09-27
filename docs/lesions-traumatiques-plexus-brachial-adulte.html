@@ -145,6 +145,28 @@ p{margin:3px 0}
 li{margin-bottom:2px}
 h4{color:var(--c-key);margin:8px 0 4px;font-size:.92rem}
 
+/* ===== RESPONSIVE MOBILE/TABLETTE ===== */
+@media (max-width:768px){
+  /* Le sommaire devient un tiroir en recouvrement : le contenu principal
+     garde toujours toute la largeur, qu'il soit ouvert ou fermé. */
+  .sidebar{width:82%;max-width:300px;box-shadow:2px 0 18px rgba(0,0,0,.35);z-index:1150}
+  main{margin-left:0 !important;padding:56px 14px 32px}
+  .header-dsm{flex-direction:column}
+  .header-right{flex-direction:row;justify-content:center;flex-wrap:wrap;gap:6px 12px;min-width:0;padding:8px 14px}
+  .header-title{font-size:1.2rem}
+  .header-meta{font-size:.72rem}
+  .plan-redaction{padding:12px 14px}
+  .section-header h2{font-size:.86rem}
+  table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
+  .dsm-figure{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .dsm-figure svg{min-width:480px}
+}
+@media (max-width:480px){
+  main{padding:52px 10px 28px}
+  body{font-size:13px}
+  .header-title{font-size:1.05rem}
+}
+
 @page{size:A4;margin:1.2cm 1.1cm 1.4cm 1.3cm;@bottom-left{content:attr(data-title);font-size:7.5pt;color:#666;font-family:'Inter',sans-serif}@bottom-right{content:"Page " counter(page) " / " counter(pages);font-size:8.5pt;color:#444;font-weight:600}}
 @page :first{@bottom-left{content:""}}
 
@@ -1209,6 +1231,13 @@ const sidebar=document.getElementById("sidebar");
 const sidebarToggle=document.getElementById("toggle-sidebar");
 sidebarToggle.addEventListener("click",()=>{sidebar.classList.toggle("collapsed");document.body.classList.toggle("sidebar-hidden");});
 
+// Sur mobile/tablette, le sommaire démarre replié pour laisser toute la
+// largeur au contenu ; il reste accessible via le bouton ☰.
+if(window.innerWidth<=768){
+  sidebar.classList.add("collapsed");
+  document.body.classList.add("sidebar-hidden");
+}
+
 const sections=Array.from(document.querySelectorAll("#dsm-content section")).filter(s=>!s.classList.contains("plan-redaction-block"));
 const sideNav=document.getElementById("sidebar-nav");
 
@@ -1229,6 +1258,14 @@ sections.forEach((section,i)=>{
     planA.style.cssText="color:inherit;text-decoration:none";
     planLi.appendChild(planA);
     planList.appendChild(planLi);
+  }
+});
+
+// Referme le sommaire mobile après un tap sur un lien, pour révéler le contenu.
+sideNav.addEventListener("click",(e)=>{
+  if(window.innerWidth<=768 && e.target.closest("a")){
+    sidebar.classList.add("collapsed");
+    document.body.classList.add("sidebar-hidden");
   }
 });
 
