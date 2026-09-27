@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lésions traumatiques du plexus brachial de l'adulte – Polycopié</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   POLYCOPIÉ v7 — COMPACT
+   - line-height corps : 1.55 → 1.35
+   - marges cards / sections divisées par 2
+   - marges print encore plus serrées
+   - padding cards réduit
+   ============================================================ */
+
+:root{
+  --blue:#0A3D62; --bg:#f5f6f8; --text:#1e272e;
+  --c-key:#2980b9; --c-nuance:#8e44ad; --c-critique:#c0392b;
+  --c-decision:#1e8449; --c-mustknow:#b7950b; --c-trap:#d35400;
+  --c-developpe:#27ae60; --c-dev-l2:#e67e22; --c-dev-l3:#0e7c86;
+  --rule:#b5b8be;
+}
+.traumatologie{ --blue:#c0392b; --c-key:#c0392b; }
+.orthopedie{ --blue:#0A3D62; --c-key:#2980b9; }
+.infections{ --blue:#16a085; --c-key:#16a085; }
+.tumeurs{ --blue:#8e44ad; --c-key:#8e44ad; }
+.pediatrique{ --blue:#e67e22; --c-key:#e67e22; }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Inter','Segoe UI',system-ui,sans-serif;
+  background:var(--bg);color:var(--text);
+  line-height:1.4;font-size:14px;
+  counter-reset:section;
+  transition:margin-left .25s ease;
+}
+
+body.print-active .sidebar,
+body.print-active .sidebar-toggle,
+body.print-active #progress{display:none !important}
+body.print-active main{margin-left:0 !important;max-width:900px;margin:0 auto}
+
+#progress{position:fixed;top:0;left:0;height:3px;width:0%;background:var(--c-key);z-index:2000;transition:width .1s linear}
+
+.sidebar{position:fixed;left:0;top:0;height:100vh;width:240px;background:linear-gradient(180deg,var(--blue),#072c45);padding:18px 12px;color:white;overflow-y:auto;z-index:1000;transition:transform .25s ease}
+.sidebar.collapsed{transform:translateX(-100%)}
+.sidebar-title{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;opacity:.75;margin:0 0 12px;font-weight:600}
+.sidebar-chap{font-size:.9rem;font-weight:700;margin:0 0 10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.2);line-height:1.3}
+.sidebar-nav{list-style:none;margin:0;padding:0}
+.sidebar-nav li{margin-bottom:3px}
+.sidebar-nav a{display:flex;align-items:center;gap:6px;color:white;text-decoration:none;padding:6px 8px;border-radius:6px;font-size:.8rem;border-left:3px solid transparent;line-height:1.2}
+.sidebar-nav a:hover{background:rgba(255,255,255,.12)}
+.sidebar-nav a.active{background:rgba(255,255,255,.18);border-left-color:var(--c-mustknow);font-weight:600}
+.sidebar-nav .marker{font-size:.8rem;opacity:.75;width:1.1rem;text-align:center;flex-shrink:0}
+.sidebar-nav .label{flex:1}
+.sidebar-toggle{position:fixed;top:12px;left:12px;z-index:1100;background:var(--blue);color:white;border:none;padding:6px 10px;border-radius:6px;cursor:pointer;font-size:.85rem;font-family:inherit}
+
+main{margin-left:240px;padding:24px 40px 40px;max-width:1100px;transition:margin-left .25s ease}
+body.sidebar-hidden main{margin-left:0}
+
+.header-dsm{display:flex;justify-content:space-between;background:white;border-radius:12px;margin-bottom:20px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.header-left{padding:18px 24px;border-left:6px solid var(--blue);flex:1}
+.header-title{margin:0;font-size:1.6rem;font-weight:700;color:var(--blue);line-height:1.2}
+.header-divider{height:1px;background:linear-gradient(to right,var(--blue),transparent);margin:10px 0}
+.header-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:.75rem;color:#555;margin-bottom:6px}
+.header-meta span strong{color:var(--c-key)}
+.header-sources{font-size:.75rem;color:#444;border-top:1px dashed #ddd;padding-top:6px;margin-top:6px}
+.header-sources ul{margin:3px 0 0;padding-left:18px}
+.header-sources li{margin-bottom:1px}
+.header-right{display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--blue);min-width:150px;color:white;padding:14px;text-align:center;font-size:.82rem;line-height:1.3}
+.header-right .domaine{font-weight:700;font-size:.9rem;letter-spacing:.05em;text-transform:uppercase}
+
+.plan-redaction{background:linear-gradient(135deg,#fef9e7,#fef5e7);border:1px solid #f1c40f;border-left:6px solid var(--c-mustknow);border-radius:10px;padding:14px 18px;margin-bottom:22px;counter-reset:plan}
+.plan-redaction .plan-title{display:flex;align-items:center;gap:8px;font-weight:700;color:#7d6608;text-transform:uppercase;font-size:.8rem;letter-spacing:.08em;margin-bottom:10px}
+.plan-redaction ol{margin:0;padding-left:0;list-style:none}
+.plan-redaction > ol > li{position:relative;padding:4px 0 4px 24px;font-weight:600;counter-increment:plan}
+.plan-redaction > ol > li::before{content:counter(plan, upper-roman) ".";position:absolute;left:0;top:4px;color:var(--c-mustknow);font-weight:700}
+.plan-redaction > ol > li > ol{list-style:none;padding-left:18px;margin-top:3px;font-weight:400;font-size:.88rem;color:#333}
+.plan-redaction > ol > li > ol > li{position:relative;padding:1px 0 1px 14px}
+.plan-redaction > ol > li > ol > li::before{content:"–";position:absolute;left:0;color:var(--c-mustknow)}
+
+section{margin-bottom:22px;counter-reset:subsection}
+.section-header{display:flex;align-items:baseline;gap:12px;margin-bottom:8px;border-bottom:2px solid var(--blue);padding-bottom:4pt;page-break-after:avoid;break-after:avoid}
+.section-header h2{counter-increment:section;margin:0;font-size:.98rem;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;font-weight:700;line-height:1.2}
+.section-header h2::before{content:counter(section, upper-roman) ". ";color:var(--c-key)}
+
+.card{background:#f7f8fa;padding:12px 16px;border-radius:10px;margin-bottom:10px;border-left:4px solid var(--c-key);box-shadow:0 2px 5px rgba(0,0,0,.04);page-break-inside:avoid;break-inside:avoid}
+.card h3{margin:0 0 6px;font-size:.95rem;color:var(--blue);font-weight:700;page-break-after:avoid;break-after:avoid}
+.card p{margin:3px 0}
+
+.trap{background:#fff5f0;border-left:5px solid var(--c-trap);padding:8px 12px;margin:8px 0;border-radius:6px;font-size:.9rem;page-break-inside:avoid;break-inside:avoid}
+.trap-title{display:flex;align-items:center;gap:6px;font-weight:700;color:var(--c-trap);text-transform:uppercase;font-size:.75rem;letter-spacing:.06em;margin-bottom:4px;page-break-after:avoid;break-after:avoid}
+.critique{background:rgba(192,57,43,.07);border-left:3px solid var(--c-critique);padding:3px 7px;display:inline-block;border-radius:3px;color:#922b21;font-weight:600}
+.nuance{color:var(--c-nuance);font-weight:600}
+.nuance-block{background:rgba(142,68,173,.06);border-left:3px solid var(--c-nuance);padding:7px 12px;margin:7px 0;border-radius:5px;page-break-inside:avoid;break-inside:avoid}
+.nuance-block .nb-title{font-weight:700;color:var(--c-nuance);text-transform:uppercase;font-size:.75rem;letter-spacing:.06em;margin-bottom:3px;page-break-after:avoid;break-after:avoid}
+.decision{background:linear-gradient(135deg,#eafaf1,#d5f5e3);border-left:5px solid var(--c-decision);padding:8px 12px;margin:8px 0;border-radius:6px;page-break-inside:avoid;break-inside:avoid}
+.decision-title{display:flex;align-items:center;gap:6px;font-weight:700;color:var(--c-decision);text-transform:uppercase;font-size:.75rem;letter-spacing:.06em;margin-bottom:4px;page-break-after:avoid;break-after:avoid}
+.must-know{background:rgba(183,149,11,.15);padding:1px 5px;border-radius:2px;color:#7d6608;font-weight:600;font-family:'Roboto Mono',monospace;font-size:.92em}
+.resume{background:#fdfefe;border:1.5pt dashed var(--c-key);padding:7px 12px;margin:8px 0;border-radius:6px;display:flex;gap:10px;align-items:flex-start;page-break-inside:avoid;break-inside:avoid}
+.resume::before{content:"À RETENIR";flex-shrink:0;background:var(--c-key);color:white;font-size:.7rem;padding:3px 7px;border-radius:3px;font-weight:700;letter-spacing:.06em;align-self:flex-start;text-transform:uppercase}
+.resume p{margin:0;font-size:.92rem;color:var(--text);line-height:1.35}
+.key-term{color:var(--c-key);font-weight:700}
+
+ul.tech-list, ol.tech-list{list-style:none !important;margin:4px 0 4px 4px !important;padding:4px 0 4px 18px !important;border-left:2px solid var(--rule)}
+ul.tech-list ul, ol.tech-list ol{list-style:none !important;margin:4px 0 4px 4px !important;padding:4px 0 4px 18px !important;border-left:2px solid #d2d5db}
+ul.tech-list ul ul, ol.tech-list ol ol{list-style:none !important;margin:4px 0 4px 4px !important;padding:4px 0 4px 18px !important;border-left:2px solid #e0e2e7}
+.tech-list > li{position:relative !important;display:block !important;margin:0 0 9px 0 !important;padding:1px 0 1px 14px !important;line-height:1.35 !important}
+.tech-list ul > li, .tech-list ul ul > li{position:relative !important;display:block !important;margin:0 0 3px 0 !important;padding:1px 0 1px 14px !important;line-height:1.35 !important}
+.tech-list li::before{content:"" !important;position:absolute !important;left:-12px !important;top:11px !important;width:11px !important;height:2px !important;background:var(--rule) !important;border-radius:1px !important}
+.tech-list ul li::before{background:#d2d5db !important}
+.tech-list ul ul li::before{background:#e0e2e7 !important}
+.dev-label{font-weight:700 !important}
+.dev-label-l1{color:var(--c-developpe) !important}
+.dev-label-l2{color:var(--c-dev-l2) !important}
+.dev-label-l3{color:var(--c-dev-l3) !important}
+
+.card ul:not(.tech-list), .card ol:not(.tech-list){margin:3px 0;padding-left:20px}
+.card ul:not(.tech-list) li{position:relative;padding-left:14px;margin-bottom:2px}
+.card ul:not(.tech-list) li::before{content:"–";position:absolute;left:0;top:0;color:var(--c-key);font-weight:700}
+
+table{width:100%;border-collapse:collapse;margin:8px 0;background:white;border-radius:6px;overflow:hidden;font-size:.82rem;page-break-inside:avoid;break-inside:avoid}
+table caption{font-size:.72rem;color:#666;text-transform:uppercase;letter-spacing:.06em;padding-bottom:3pt;page-break-after:avoid;break-after:avoid;counter-increment:tableid;caption-side:top;text-align:left}
+table caption::before{content:"Tableau " counter(section) "." counter(tableid) " – ";font-weight:700;color:var(--c-key)}
+th{background:var(--blue);color:white;padding:5px 7px;text-align:center;font-weight:600;font-size:.78rem}
+td{padding:5px 7px;text-align:center;border-bottom:1px solid #eee;line-height:1.3}
+tr:nth-child(even) td{background:#f4f7fb}
+td:first-child{text-align:left;font-weight:600;color:var(--text)}
+
+.dsm-figure{text-align:center;margin:0 0 10px 0;page-break-inside:avoid;break-inside:avoid}
+.dsm-figure img{max-width:100%;max-height:280px;width:auto;height:auto;object-fit:contain;border-radius:4px;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.dsm-figure figcaption{font-size:.72rem;color:#555;margin-top:5px;font-style:italic;line-height:1.3;text-align:left;padding:0 6px;counter-increment:figid}
+.dsm-figure figcaption::before{content:"Fig. " counter(section) "." counter(figid) " – ";font-weight:700;font-style:normal;color:var(--c-key);font-size:.85em}
+.dsm-figure img{max-width:100%;max-height:none;height:auto;border-radius:2px;box-shadow:none;margin-bottom:3pt}
+.dsm-figure figcaption{font-size:6.5pt;color:#555;margin-top:2pt;font-style:italic;text-align:left;counter-increment:figid;line-height:1.25}
+.dsm-figure figcaption::before{content:"Fig. " counter(section) "." counter(figid) " – ";font-weight:700;font-style:normal;color:var(--c-key);font-size:1.1em}
+a{color:var(--c-key)}
+a:hover{color:#1f4e79}
+p{margin:3px 0}
+li{margin-bottom:2px}
+h4{color:var(--c-key);margin:8px 0 4px;font-size:.92rem}
+
+@page{size:A4;margin:1.2cm 1.1cm 1.4cm 1.3cm;@bottom-left{content:attr(data-title);font-size:7.5pt;color:#666;font-family:'Inter',sans-serif}@bottom-right{content:"Page " counter(page) " / " counter(pages);font-size:8.5pt;color:#444;font-weight:600}}
+@page :first{@bottom-left{content:""}}
+
+@media print{
+  html,body{background:white !important;color:#111 !important;font-size:9pt;line-height:1.22 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sidebar,.sidebar-toggle,#progress{display:none !important}
+  main{margin:0 !important;padding:0 !important;max-width:100% !important}
+  .header-dsm{margin-bottom:6pt;page-break-after:avoid;break-after:avoid;border-radius:0;box-shadow:none}
+  .header-title{font-size:14pt}
+  .header-meta{font-size:7.5pt}
+  .header-sources{font-size:7pt;margin-top:4pt;padding-top:4pt}
+  .plan-redaction-block{page-break-before:always;break-before:always;page-break-after:always;break-after:always}
+  .plan-redaction{padding:14pt 14pt !important;margin:0 !important;background:#fef9e7 !important;page-break-inside:avoid;break-inside:avoid;border:1pt solid #b7950b}
+  .plan-redaction .plan-title{font-size:9pt;margin-bottom:6pt}
+  .plan-redaction ol{font-size:9pt}
+  .plan-redaction > ol > li{padding:2pt 0 2pt 20pt}
+  .plan-redaction > ol > li > ol{font-size:8.5pt}
+  section{margin-bottom:7pt}
+  .section-header{margin-bottom:3pt}
+  .section-header h2{font-size:10pt;padding:2pt 0;border-bottom:.5pt solid var(--blue)}
+  .card,.trap,.decision,.nuance-block,.resume,table{page-break-inside:avoid !important;break-inside:avoid !important;box-shadow:none !important;border-radius:2px !important}
+  .card{padding:5pt 8pt !important;margin-bottom:4pt !important;border-left-width:2pt}
+  .card h3{font-size:9.5pt;margin-bottom:2pt}
+  .card p{margin:2pt 0}
+  .trap{padding:4pt 8pt !important;margin:3pt 0 !important;border-left-width:2.5pt}
+  .trap-title{font-size:7pt;margin-bottom:2pt}
+  .decision{padding:4pt 8pt !important;margin:3pt 0 !important;border-left-width:2.5pt}
+  .decision-title{font-size:7pt;margin-bottom:2pt}
+  .nuance-block{padding:4pt 7pt !important;margin:3pt 0 !important;border-left-width:2pt}
+  .nuance-block .nb-title{font-size:7pt;margin-bottom:2pt}
+  .must-know{padding:0 4pt;font-size:.85em}
+  .resume{padding:4pt 8pt !important;margin:4pt 0 !important}
+  .resume::before{font-size:6.5pt;padding:1pt 4pt}
+  .resume p{font-size:8.5pt;line-height:1.25}
+  ul.tech-list, ol.tech-list{margin:2pt 0 2pt 3pt !important;padding:3pt 0 3pt 14pt !important;border-left-width:1pt !important}
+  ul.tech-list ul, ol.tech-list ol{margin:2pt 0 2pt 3pt !important;padding:3pt 0 3pt 14pt !important}
+  .tech-list li{margin-bottom:1.5pt !important;padding:0 0 0 10pt !important;line-height:1.25 !important}
+  .tech-list li::before{left:-9pt !important;top:8pt !important;width:8pt !important;height:1pt !important}
+  .dev-label-l1{color:#1e8449 !important}
+  .dev-label-l2{color:#b9650a !important}
+  .dev-label-l3{color:#0b626b !important}
+  p{margin:2pt 0}
+  li{margin-bottom:1pt}
+  table{font-size:7.5pt;margin:3pt 0}
+  th{font-size:7.5pt;padding:2pt 4pt}
+  td{padding:2pt 4pt;line-height:1.2}
+  .dsm-figure{margin:3pt 0;page-break-inside:avoid;break-inside:avoid}
+  .dsm-figure img{max-width:85% !important}
+  .dsm-figure figcaption{font-size:7pt}
+  a{text-decoration:none !important;color:inherit !important}
+  h1,h2,h3,h4{page-break-after:avoid;break-after:avoid}
+  p,li{orphans:3;widows:3}
+  footer{font-size:7pt;margin-top:8pt;padding-top:4pt}
+}
+</style>
+</head>
+
+<body class="orthopedie" data-title="Lésions traumatiques du plexus brachial de l'adulte">
+
+<div id="progress"></div>
+
+<button class="sidebar-toggle" id="toggle-sidebar" aria-label="Plier le sommaire">☰ Sommaire</button>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-title">Sommaire</div>
+  <div class="sidebar-chap">Lésions traumatiques du plexus brachial de l'adulte</div>
+  <ul class="sidebar-nav" id="sidebar-nav"></ul>
+</aside>
+
+<main id="main">
+
+<header class="header-dsm">
+  <div class="header-left">
+    <h1 class="header-title">Lésions traumatiques du plexus brachial de l'adulte</h1>
+    <div class="header-divider"></div>
+    <div class="header-meta">
+      <span><strong>Domaine :</strong> orthopedie</span>
+      <span><strong>Région :</strong> Plexus brachial</span>
+
+    </div>
+    <div class="header-sources"><strong>Sources :</strong>
+      <ul><li>Spinner et al., chap. 34 « Traumatic Brachial Plexus Injury » (notes NotebookLM)</li></ul>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="domaine">ORTHO</div>
+    <div>Plexus brachial</div>
+  </div>
+</header>
+
+<!-- Plan de rédaction : généré automatiquement depuis les sections du cours -->
+<section class="plan-redaction-block" id="plan-block">
+<div class="plan-redaction" id="plan-content">
+  <div class="plan-title">📋 Plan du polycopié</div>
+  <ol id="plan-list"></ol>
+</div>
+</section>
+
+<div id="dsm-content">
+<section id="sec-intro">
+<div class="section-header"><h2>Introduction et définition</h2></div>
+<div class="card">
+<h3>Définition</h3>
+<ul class="tech-list">
+<li><span>Structures atteintes</span> : racines C5 à T1 et leurs prolongements
+<ul>
+<li>Troncs</li>
+<li>Divisions</li>
+<li>Faisceaux</li>
+<li>Branches</li>
+</ul>
+</li>
+<li><span>Mécanisme</span>
+<ul>
+<li><span>Traumatisme fermé</span> : traction</li>
+<li><span>Traumatisme ouvert</span> : plaie, arme à feu, iatrogénie</li>
+</ul>
+</li>
+<li><span>Conséquence</span> : déficit variable du membre supérieur
+<ul>
+<li>Moteur</li>
+<li>Sensitif</li>
+<li>Autonome</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="card">
+<h3>Intérêts de l'étude</h3>
+<ul class="tech-list">
+<li><span>Gravité fonctionnelle et médico-sociale</span>
+<ul>
+<li>Touche l'adulte jeune</li>
+<li>Handicap moteur/sensitif majeur, jusqu'au bras flasque</li>
+<li>Risque élevé de douleurs neuropathiques de déafférentation</li>
+</ul>
+</li>
+<li><span>Complexité diagnostique topographique</span>
+<ul>
+<li><span>Bilan</span> : clinique, électrophysiologique (EMG) et d'imagerie (myélo-TDM)</li>
+<li><span>But</span> : distinguer deux types de lésions
+<ul>
+<li><span>Pré-ganglionnaires</span> : avulsions radiculaires intralésionnelles</li>
+<li><span>Post-ganglionnaires</span> : ruptures, neuromes</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span>Enjeu thérapeutique et timing strict</span>
+<ul>
+<li>Prise en charge multidisciplinaire</li>
+<li>Délais chirurgicaux stricts
+<ul>
+<li><span>Urgence (&lt; 8 jours)</span> : plaies tranchantes</li>
+<li><span>Exploration à 2–3 mois</span> : avulsion suspectée</li>
+<li><span>Exploration à 3–6 mois</span> : étirement fermé</li>
+<li><span>Limite de 6 mois</span> : chirurgie nerveuse primaire</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+<section id="sec-epidemio">
+<div class="section-header"><h2>Épidémiologie, terrain et étiologies</h2></div>
+<div class="must-know">Hommes jeunes (15–25 ans) dans 80 à 90 % des cas (Kim et al., 2004).</div>
+<div class="must-know">Traction fermée : 70 à 80 % des cas, surtout AVP en deux-roues/moto.</div>
+<div class="card">
+<h3>Profil démographique et terrain</h3>
+<ul class="tech-list">
+<li><span>Prédominance masculine jeune</span> : hommes de 15–25 ans, 80 à 90 % des cas (Kim et al., 2004)</li>
+<li><span>Contexte de polytraumatisme</span> : lésion de haute énergie
+<ul>
+<li><span>Traumatisme crânien, thoracique ou orthopédique</span> : 75 % des cas (van der Werken et de Vries, 1993 ; Sturm et Perry, 1987)</li>
+<li><span>Atteinte artérielle</span> : 20 % des cas (van der Werken et de Vries, 1993 ; Sturm et Perry, 1987)</li>
+</ul>
+</li>
+<li><span>Impact psychologique</span> : retentissement socio-professionnel et détresse psychologique majeurs chez l'adulte jeune (Landers et al., 2018)</li>
+</ul>
+</div>
+<table>
+<caption>Mécanismes et étiologies traumatiques (Coene, 1993 ; Kim et al., 2004)</caption>
+<thead><tr><th>Mécanisme</th><th>Fréquence</th><th>Circonstances</th><th>Lésions</th></tr></thead>
+<tbody>
+<tr><td>Traction fermée, haute énergie</td><td>70 à 80 % (traction fermée)</td><td>AVP deux-roues, chutes de hauteur</td><td>Avulsions radiculaires ou ruptures</td></tr>
+<tr><td>Traction fermée, basse énergie</td><td>70 à 80 % (traction fermée)</td><td>Chutes simples, traumatismes sportifs</td><td>Étirements en continuité (neurapraxies/axonotmésis)</td></tr>
+<tr><td>Armes blanches et verre</td><td>10 à 15 % (plaies pénétrantes)</td><td>Tranchant net</td><td>Transection/discontinuité immédiate des nerfs</td></tr>
+<tr><td>Armes à feu</td><td>10 à 15 % (plaies pénétrantes)</td><td>Basse vitesse : impact direct. Haute vitesse : onde de choc, cavitation</td><td>Éléments le plus souvent en continuité</td></tr>
+<tr><td>Iatrogène</td><td>&lt; 5 %</td><td>Ostéosynthèse de clavicule, voies d'abord du cou/creux axillaire, positionnement opératoire</td><td>Lésions secondaires au geste</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="sec-anatomie">
+<div class="section-header"><h2>Anatomie et biomécanique</h2></div>
+<figure class="dsm-figure"><svg style="width:100%;height:auto;font-family:'Inter',sans-serif" viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg"><polyline points="120,87.0 230,113.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="120,139.0 230,113.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="120,191.0 230,191.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="120,243.0 230,269.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="120,295.0 230,269.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="360,113.0 440,75.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="360,113.0 440,129.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="360,191.0 440,177.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="360,191.0 440,225.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="360,269.0 440,267.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="360,269.0 440,311.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="540,75.0 610,97.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="540,177.0 610,97.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="540,129.0 610,217.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="540,225.0 610,217.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="540,311.0 610,217.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="540,267.0 610,307.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="720,97.0 790,67.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="720,97.0 790,117.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="720,217.0 790,187.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="720,217.0 790,237.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="720,307.0 790,287.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><polyline points="720,307.0 790,337.0" fill="none" stroke="var(--rule)" stroke-width="1.4" /><rect x="20" y="70" width="100" height="34" rx="5" fill="#eaf2f8" stroke="var(--c-key)" stroke-width="1.4"/><text x="70.0" y="91.0" font-size="11" text-anchor="middle" fill="#1e272e">C5</text><rect x="20" y="122" width="100" height="34" rx="5" fill="#eaf2f8" stroke="var(--c-key)" stroke-width="1.4"/><text x="70.0" y="143.0" font-size="11" text-anchor="middle" fill="#1e272e">C6</text><rect x="20" y="174" width="100" height="34" rx="5" fill="#eaf2f8" stroke="var(--c-key)" stroke-width="1.4"/><text x="70.0" y="195.0" font-size="11" text-anchor="middle" fill="#1e272e">C7</text><rect x="20" y="226" width="100" height="34" rx="5" fill="#eaf2f8" stroke="var(--c-key)" stroke-width="1.4"/><text x="70.0" y="247.0" font-size="11" text-anchor="middle" fill="#1e272e">C8</text><rect x="20" y="278" width="100" height="34" rx="5" fill="#eaf2f8" stroke="var(--c-key)" stroke-width="1.4"/><text x="70.0" y="299.0" font-size="11" text-anchor="middle" fill="#1e272e">T1</text><rect x="230" y="96" width="130" height="34" rx="5" fill="#fdfefe" stroke="var(--c-key)" stroke-width="1.4"/><text x="295.0" y="110.0" font-size="11" text-anchor="middle" fill="#1e272e">Tronc supérieur</text><text x="295.0" y="124.0" font-size="11" text-anchor="middle" fill="#1e272e">C5-C6</text><rect x="230" y="174" width="130" height="34" rx="5" fill="#fdfefe" stroke="var(--c-key)" stroke-width="1.4"/><text x="295.0" y="188.0" font-size="11" text-anchor="middle" fill="#1e272e">Tronc moyen</text><text x="295.0" y="202.0" font-size="11" text-anchor="middle" fill="#1e272e">C7</text><rect x="230" y="252" width="130" height="34" rx="5" fill="#fdfefe" stroke="var(--c-key)" stroke-width="1.4"/><text x="295.0" y="266.0" font-size="11" text-anchor="middle" fill="#1e272e">Tronc inférieur</text><text x="295.0" y="280.0" font-size="11" text-anchor="middle" fill="#1e272e">C8-T1</text><rect x="440" y="58" width="100" height="34" rx="5" fill="#f7f8fa" stroke="var(--c-key)" stroke-width="1.4"/><text x="490.0" y="79.0" font-size="11" text-anchor="middle" fill="#1e272e">Ant. sup.</text><rect x="440" y="112" width="100" height="34" rx="5" fill="#f7f8fa" stroke="var(--c-key)" stroke-width="1.4"/><text x="490.0" y="133.0" font-size="11" text-anchor="middle" fill="#1e272e">Post. sup.</text><rect x="440" y="160" width="100" height="34" rx="5" fill="#f7f8fa" stroke="var(--c-key)" stroke-width="1.4"/><text x="490.0" y="181.0" font-size="11" text-anchor="middle" fill="#1e272e">Ant. moy.</text><rect x="440" y="208" width="100" height="34" rx="5" fill="#f7f8fa" stroke="var(--c-key)" stroke-width="1.4"/><text x="490.0" y="229.0" font-size="11" text-anchor="middle" fill="#1e272e">Post. moy.</text><rect x="440" y="250" width="100" height="34" rx="5" fill="#f7f8fa" stroke="var(--c-key)" stroke-width="1.4"/><text x="490.0" y="271.0" font-size="11" text-anchor="middle" fill="#1e272e">Ant. inf.</text><rect x="440" y="294" width="100" height="34" rx="5" fill="#f7f8fa" stroke="var(--c-key)" stroke-width="1.4"/><text x="490.0" y="315.0" font-size="11" text-anchor="middle" fill="#1e272e">Post. inf.</text><rect x="610" y="80" width="110" height="34" rx="5" fill="#fef9e7" stroke="#b7950b" stroke-width="1.4"/><text x="665.0" y="101.0" font-size="11" text-anchor="middle" fill="#1e272e">Faisceau latéral</text><rect x="610" y="200" width="110" height="34" rx="5" fill="#fef9e7" stroke="#b7950b" stroke-width="1.4"/><text x="665.0" y="221.0" font-size="11" text-anchor="middle" fill="#1e272e">Faisceau postérieur</text><rect x="610" y="290" width="110" height="34" rx="5" fill="#fef9e7" stroke="#b7950b" stroke-width="1.4"/><text x="665.0" y="311.0" font-size="11" text-anchor="middle" fill="#1e272e">Faisceau médial</text><rect x="790" y="50" width="190" height="34" rx="5" fill="#d5f5e3" stroke="#1e8449" stroke-width="1.4"/><text x="885.0" y="71.0" font-size="11" text-anchor="middle" fill="#1e272e">Musculocutané</text><rect x="790" y="100" width="190" height="34" rx="5" fill="#d5f5e3" stroke="#1e8449" stroke-width="1.4"/><text x="885.0" y="121.0" font-size="11" text-anchor="middle" fill="#1e272e">Médian (racine latérale)</text><rect x="790" y="170" width="190" height="34" rx="5" fill="#d5f5e3" stroke="#1e8449" stroke-width="1.4"/><text x="885.0" y="191.0" font-size="11" text-anchor="middle" fill="#1e272e">Axillaire</text><rect x="790" y="220" width="190" height="34" rx="5" fill="#d5f5e3" stroke="#1e8449" stroke-width="1.4"/><text x="885.0" y="241.0" font-size="11" text-anchor="middle" fill="#1e272e">Radial</text><rect x="790" y="270" width="190" height="34" rx="5" fill="#d5f5e3" stroke="#1e8449" stroke-width="1.4"/><text x="885.0" y="291.0" font-size="11" text-anchor="middle" fill="#1e272e">Médian (racine médiale)</text><rect x="790" y="320" width="190" height="34" rx="5" fill="#d5f5e3" stroke="#1e8449" stroke-width="1.4"/><text x="885.0" y="341.0" font-size="11" text-anchor="middle" fill="#1e272e">Ulnaire</text><text x="70.0" y="30" font-size="12" font-weight="700" text-anchor="middle" fill="var(--blue)">Racines</text><text x="295.0" y="30" font-size="12" font-weight="700" text-anchor="middle" fill="var(--blue)">Troncs</text><text x="490.0" y="30" font-size="12" font-weight="700" text-anchor="middle" fill="var(--blue)">Divisions</text><text x="665.0" y="30" font-size="12" font-weight="700" text-anchor="middle" fill="var(--blue)">Faisceaux</text><text x="885.0" y="30" font-size="12" font-weight="700" text-anchor="middle" fill="var(--blue)">Branches terminales</text><text x="295.0" y="46" font-size="10" text-anchor="middle" fill="#666">supraclaviculaires</text><text x="490.0" y="46" font-size="10" text-anchor="middle" fill="#666">rétroclaviculaires</text><text x="665.0" y="46" font-size="10" text-anchor="middle" fill="#666">infraclaviculaires</text><text x="70" y="335" font-size="10.5" text-anchor="middle" fill="#d35400" font-weight="700">C5-C6 : ancrage solide</text><text x="70" y="350" font-size="10.5" text-anchor="middle" fill="#d35400">rupture extraforaminale</text><text x="70" y="372" font-size="10.5" text-anchor="middle" fill="#c0392b" font-weight="700">C8-T1 : ancrage faible</text><text x="70" y="387" font-size="10.5" text-anchor="middle" fill="#c0392b">avulsion intraméningée</text></svg><figcaption>Schéma du plexus brachial : racines, troncs, divisions, faisceaux et branches terminales, avec l'ancrage foraminal différentiel de C5-C6 et C8-T1.</figcaption></figure>
+<div class="card">
+<h3>Organisation du plexus</h3>
+<ul class="tech-list">
+<li><span>Constitution</span> : réunion des rami ventraux de C5 à T1</li>
+<li><span>Cinq niveaux anatomiques</span>
+<ul>
+<li><span>Racines</span>
+<ul>
+<li>Émergent des foramens</li>
+<li>Ganglion spinal sensitif situé dans le foramen</li>
+</ul>
+</li>
+<li><span>Troncs (supraclaviculaires)</span>
+<ul>
+<li><span>Tronc supérieur</span> : C5-C6, point d'Erb</li>
+<li><span>Tronc moyen</span> : issu de C7</li>
+<li><span>Tronc inférieur</span> : C8-T1</li>
+</ul>
+</li>
+<li><span>Divisions (rétroclaviculaires)</span>
+<ul>
+<li>Séparation sous-claviculaire de chaque tronc</li>
+<li>En divisions antérieure et postérieure</li>
+</ul>
+</li>
+<li><span>Faisceaux (infraclaviculaires)</span> : cf. tableau ci-dessous</li>
+<li><span>Branches terminales</span> : cf. tableau ci-dessous</li>
+</ul>
+</li>
+</ul>
+</div>
+<table>
+<caption>Faisceaux et branches terminales</caption>
+<thead><tr><th>Faisceau</th><th>Origine</th><th>Branches terminales</th></tr></thead>
+<tbody>
+<tr><td>Latéral</td><td>Divisions antérieures des troncs supérieur et moyen</td><td>Musculocutané ; racine latérale du médian</td></tr>
+<tr><td>Postérieur</td><td>Divisions postérieures des 3 troncs</td><td>Axillaire ; radial</td></tr>
+<tr><td>Médial</td><td>Division antérieure du tronc inférieur</td><td>Ulnaire ; racine médiale du médian ; cutanés médiaux du bras et de l'avant-bras</td></tr>
+</tbody>
+</table>
+<div class="card">
+<h3>Branches collatérales et rapports clés</h3>
+<ul class="tech-list">
+<li><span>Collatérales radiculaires</span>
+<ul>
+<li><span>C5</span> : phrénique (C3-C5)</li>
+<li><span>Nerf dorsal de la scapula</span> : C5, rhomboïdes</li>
+<li><span>Nerf thoracique long</span> : C5-C7, serratus anterior</li>
+</ul>
+</li>
+<li><span>Collatérales des troncs</span> : tronc supérieur
+<ul>
+<li>Nerf suprascapulaire (C5-C6)</li>
+<li>Nerf du subclavier</li>
+</ul>
+</li>
+<li><span>Collatérales des divisions et faisceaux</span>
+<ul>
+<li><span>Rétroclaviculaire</span> : pectoral latéral</li>
+<li><span>Faisceau postérieur</span> : subscapulaires supérieur et inférieur, thoracodorsal</li>
+<li><span>Faisceau médial</span> : pectoral médial</li>
+</ul>
+</li>
+<li><span>Rapports cardinaux</span>
+<ul>
+<li><span>Racines</span> : entre scalènes antérieur et moyen, phrénique en avant du scalène antérieur</li>
+<li><span>Tronc inférieur (C8-T1)</span> : au-dessus et en arrière de l'artère sous-clavière</li>
+<li><span>Faisceaux</span> : entourent l'artère axillaire, sous le petit pectoral</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="card">
+<h3>Variations anatomiques (Mansat, 1977)</h3>
+<ul class="tech-list">
+<li><span>Plexus pré-fixé</span> : contribution de C4 (C4-C8)
+<ul>
+<li>Activité des rhomboïdes possible malgré une avulsion C5 : cf. piège de l'examen clinique</li>
+</ul>
+</li>
+<li><span>Plexus post-fixé</span> : contribution de T2 (C6-T2)</li>
+</ul>
+</div>
+<div class="card">
+<h3>Biomécanique des lésions par traction</h3>
+<ul class="tech-list">
+<li><span>Topographie des lésions (Coene, 1993)</span>
+<ul>
+<li><span>Supraclaviculaires (~2/3)</span> : racines, troncs</li>
+<li><span>Rétro/infraclaviculaires (~1/3)</span> : divisions, faisceaux, branches</li>
+</ul>
+</li>
+<li><span>Vecteurs de traction</span>
+<ul>
+<li><span>Élargissement cou-épaule (traction vers le bas)</span> : tension de C5, C6 et du tronc supérieur</li>
+<li><span>Élargissement scapulo-huméral (hyperabduction)</span> : tension de C8, T1 et du tronc inférieur</li>
+<li><span>Impact extrême</span> : atteinte pan-plexique C5-T1</li>
+</ul>
+</li>
+<li><span>Ancrage dural et foraminal</span>
+<ul>
+<li><span>C5-C6</span> : tissu de soutien foraminal/dural très solide
+<ul>
+<li>Résistent à l'arrachement</li>
+<li>Rupture extraforaminale (post-ganglionnaire) ou étirement</li>
+</ul>
+</li>
+<li><span>C8-T1</span> : tissu de soutien foraminal/dural faible
+<ul>
+<li>Glissent</li>
+<li>Avulsion radiculaire intraméningée (pré-ganglionnaire)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span>Effets microvasculaires (Kitamura et al., 1995)</span> : traction de basse énergie
+<ul>
+<li>Perturbation de la microcirculation intraneurale</li>
+<li>Ischémie focale</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+<section id="sec-physiopath">
+<div class="section-header"><h2>Physiopathologie, mécanismes et lésions associées</h2></div>
+<figure class="dsm-figure"><svg viewBox="0 0 1000 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:'Inter',sans-serif"><rect x="20" y="60" width="110" height="200" rx="5" fill="#eaf2f8" stroke="var(--blue)" stroke-width="1.4"/><text x="75.0" y="157.0" font-size="11" text-anchor="middle" fill="#1e272e" font-weight="700">Moelle</text><text x="75.0" y="171.0" font-size="11" text-anchor="middle" fill="#1e272e" font-weight="700">épinière</text><polyline points="130,110 330,110" fill="none" stroke="var(--blue)" stroke-width="2" /><polyline points="130,210 480,210" fill="none" stroke="var(--blue)" stroke-width="2" /><text x="230" y="102" font-size="10.5" text-anchor="middle" fill="#555">radicelle dorsale (sensitive)</text><text x="300" y="232" font-size="10.5" text-anchor="middle" fill="#555">radicelle ventrale (motrice)</text><ellipse cx="360" cy="110" rx="30" ry="18" fill="#fef9e7" stroke="#b7950b" stroke-width="1.6"/><text x="360" y="114" font-size="10.5" text-anchor="middle" fill="#7d6608" font-weight="700">ganglion</text><polyline points="390,110 480,110" fill="none" stroke="var(--blue)" stroke-width="2" /><polyline points="480,110 540,160" fill="none" stroke="var(--blue)" stroke-width="2" /><polyline points="480,210 540,160" fill="none" stroke="var(--blue)" stroke-width="2" /><polyline points="540,160 860,160" fill="none" stroke="var(--blue)" stroke-width="3" /><text x="700" y="150" font-size="10.5" text-anchor="middle" fill="#555">racine puis plexus (troncs, faisceaux, branches)</text><polyline points="300,55 300,265" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="4 4"/><polyline points="420,55 420,265" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="4 4"/><text x="360" y="50" font-size="10.5" text-anchor="middle" fill="#777">foramen</text><text x="160" y="118" font-size="22" text-anchor="middle" fill="#c0392b" font-weight="700">✕</text><text x="160" y="218" font-size="22" text-anchor="middle" fill="#c0392b" font-weight="700">✕</text><rect x="40" y="275" width="300" height="46" rx="5" fill="#fdedec" stroke="#c0392b" stroke-width="1.4"/><text x="190.0" y="295.0" font-size="10.5" text-anchor="middle" fill="#922b21">Avulsion : lésion pré-ganglionnaire</text><text x="190.0" y="309.0" font-size="10.5" text-anchor="middle" fill="#922b21">ganglion relié à la périphérie : SNAP préservé</text><polyline points="160,275 160,226" fill="none" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 3"/><text x="640" y="170" font-size="22" text-anchor="middle" fill="#d35400" font-weight="700">✕</text><rect x="520" y="215" width="240" height="46" rx="5" fill="#fff5f0" stroke="#d35400" stroke-width="1.4"/><text x="640.0" y="235.0" font-size="10.5" text-anchor="middle" fill="#1e272e">Rupture/étirement : lésion post-ganglionnaire</text><text x="640.0" y="249.0" font-size="10.5" text-anchor="middle" fill="#1e272e">ganglion séparé de la périphérie : SNAP aboli</text><polyline points="640,215 640,178" fill="none" stroke="#d35400" stroke-width="1" stroke-dasharray="3 3"/></svg><figcaption>Localisation des lésions pré- et post-ganglionnaires par rapport au ganglion spinal sensitif, situé dans le foramen.</figcaption></figure>
+<table>
+<caption>Lésions pré-ganglionnaires et post-ganglionnaires</caption>
+<thead><tr><th>Critère</th><th>Pré-ganglionnaire (avulsion radiculaire intraméningée)</th><th>Post-ganglionnaire (rupture/étirement extraforaminal)</th></tr></thead>
+<tbody>
+<tr><td>Anatomopathologie</td><td>Arrachage des radicelles de la moelle, en amont du ganglion spinal</td><td>Atteinte distale au ganglion spinal (racines, troncs, faisceaux)</td></tr>
+<tr><td>Régénération</td><td>Nulle spontanément ou par greffe directe ; impose une neurotisation (Millesi, 1977)</td><td>Repousse possible (1 mm/jour) si architecture intacte ou après résection-greffe</td></tr>
+<tr><td>Dégénérescence wallérienne</td><td>Pas de dégénérescence wallérienne distale sensitive (corps cellulaire conservé dans le ganglion)</td><td>Dégénérescence wallérienne distale</td></tr>
+<tr><td>SNAP (potentiel d'action nerveux sensitif)</td><td>Préservé</td><td>Aboli</td></tr>
+</tbody>
+</table>
+<div class="card">
+<h3>Spectre post-ganglionnaire</h3>
+<ul class="tech-list">
+<li><span>Spectre lésionnel (Seddon, 1975 ; Sunderland, 1978)</span> : de la neurapraxie à la neurotmésis
+<ul>
+<li>Neurapraxie</li>
+<li>Axonotmésis (neurome)</li>
+<li>Neurotmésis</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="card">
+<h3>Mécanismes intimes des traumatismes</h3>
+<ul class="tech-list">
+<li><span>Traction haute énergie (Coene, 1993)</span>
+<ul>
+<li>Ruptures complètes (Sunderland V)</li>
+<li>Avulsions radiculaires multiples étagées</li>
+</ul>
+</li>
+<li><span>Traction basse énergie (Kitamura et al., 1995)</span>
+<ul>
+<li>Étirements en continuité (Sunderland I–III)</li>
+<li>Ischémie microvasculaire intraneurale</li>
+</ul>
+</li>
+<li><span>Plaies pénétrantes (Kim et al., 2004)</span>
+<ul>
+<li><span>Armes blanches</span> : discontinuité directe</li>
+<li><span>Outils</span> : délabrement moussant avec nécrose nerveuse</li>
+</ul>
+</li>
+<li><span>Armes à feu (Kim et al., 2004)</span>
+<ul>
+<li><span>Basse vitesse</span> : transection directe</li>
+<li><span>Haute vitesse</span> : contusion par onde de choc/cavitation, éléments souvent en continuité</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="card">
+<h3>Lésions associées</h3>
+<ul class="tech-list">
+<li><span>Polytraumatisme général</span> : association fréquente à
+<ul>
+<li>Traumatisme crânien</li>
+<li>Traumatisme thoracique</li>
+<li>Fractures de membres</li>
+</ul>
+</li>
+<li><span>Lésions vasculaires</span>
+<ul>
+<li>Atteinte des artères sous-clavière ou axillaire</li>
+<li>Risque de pseudo-anévrisme compressif</li>
+</ul>
+</li>
+<li><span>Lésions thoraciques et respiratoires</span>
+<ul>
+<li><span>Atteinte pleurale</span> : pneumothorax/hémothorax</li>
+<li><span>Phrénique (C3-C5)</span> : paralysie avec surélévation diaphragmatique</li>
+<li><span>Nerfs intercostaux (Kovachevich et al., 2010)</span> : atteinte dans ~10 % des cas si fractures de côtes</li>
+</ul>
+</li>
+<li><span>Lésions ostéoarticulaires</span>
+<ul>
+<li>Fractures du rachis cervical (processus transverses)</li>
+<li>Fractures de clavicule, scapula</li>
+<li>Fractures des 1ère et 2ème côtes</li>
+<li>Dissociation scapulo-thoracique</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+<section id="sec-classifications">
+<div class="section-header"><h2>Classifications</h2></div>
+<div class="card">
+<h3>Classification de Seddon (Sir Herbert Seddon, 1943 / 1975)</h3>
+<ul class="tech-list">
+<li><span>Principe</span> : 3 degrés anatomocliniques de sévérité des lésions nerveuses</li>
+<li><span>Degrés et critères anatomiques</span>
+<ul>
+<li><span>Neurapraxie</span>
+<ul>
+<li>Bloc de conduction sans interruption axonale</li>
+<li>Stroma intact</li>
+<li>Récupération spontanée complète (jours à 3 mois)</li>
+</ul>
+</li>
+<li><span>Axonotmésis</span>
+<ul>
+<li>Interruption axonale avec dégénérescence wallérienne</li>
+<li>Gaines intactes (endonèvre/périnèvre)</li>
+<li>Repousse axonale (1 mm/j)</li>
+</ul>
+</li>
+<li><span>Neurotmésis</span>
+<ul>
+<li>Discontinuité complète ou neurome non conducteur</li>
+<li>Récupération nulle</li>
+<li>Chirurgie obligatoire</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span>Valeur décisionnelle</span>
+<ul>
+<li><span>Neurapraxie</span> : abstention</li>
+<li><span>Neurotmésis</span> : résection-greffe/transfert</li>
+</ul>
+</li>
+</ul>
+</div>
+<table>
+<caption>Classification de Sunderland (Sir Sydney Sunderland, 1951 / 1978) : 5 degrés histologiques selon les enveloppes atteintes</caption>
+<thead><tr><th>Degré</th><th>Structures lésées</th><th>Évolution / conduite</th></tr></thead>
+<tbody>
+<tr><td>Degré 1</td><td>Conduction bloquée ; axone et enveloppes intacts (neurapraxie)</td><td>—</td></tr>
+<tr><td>Degré 2</td><td>Axone lésé ; tube endoneural intact (axonotmésis pur)</td><td>Repousse axonale (1 mm/j)</td></tr>
+<tr><td>Degré 3</td><td>Axone et endonèvre lésés ; périnèvre intact</td><td>Risque de fibrose ; récupération incomplète</td></tr>
+<tr><td>Degré 4</td><td>Axone, endonèvre et périnèvre lésés ; épinèvre continu (neurome)</td><td>Résection-greffe obligatoire</td></tr>
+<tr><td>Degré 5</td><td>Transection complète de toutes les enveloppes (neurotmésis)</td><td>—</td></tr>
+</tbody>
+</table>
+<div class="card">
+<h3>Degré 6 de Mackinnon</h3>
+<ul class="tech-list">
+<li><span>Degré 6 (Mackinnon et Dellon, 1988)</span> : lésion complexe combinant différents degrés de Sunderland au sein d'un même nerf</li>
+</ul>
+</div>
+<table>
+<caption>Classification anatomotopographique : Erb (1874), Duchenne (1872), Dejerine-Klumpke (1885) — regroupe les atteintes supraclaviculaires selon les racines touchées</caption>
+<thead><tr><th>Type</th><th>Racines</th><th>Clinique</th></tr></thead>
+<tbody>
+<tr><td>Paralysie supérieure (Erb/Erb-Duchenne)</td><td>C5-C6</td><td>Paralysie de l'épaule (deltoïde, supra/infraspinatus) et du coude (biceps, brachialis)</td></tr>
+<tr><td>Paralysie supérieure étendue (Erb-plus)</td><td>C5-C7</td><td>Ajoute une paralysie du triceps et des extenseurs</td></tr>
+<tr><td>Paralysie inférieure (Klumpke/Dejerine-Klumpke)</td><td>C8-T1</td><td>Paralysie des intrinsèques et des fléchisseurs des doigts ; syndrome de Horner (T1)</td></tr>
+<tr><td>Paralysie totale (pan-plexique)</td><td>C5-T1</td><td>Paralysie et anesthésie complètes du membre supérieur (« bras flasque »)</td></tr>
+</tbody>
+</table>
+<div class="must-know">Valeur décisionnelle : priorités opératoires (flexion coude/épaule vs préhension/FFMT).</div>
+<table>
+<caption>Classification myélographique de Nagano modifiée (A. Nagano et al., 1989) : avulsions radiculaires en myélo-TDM</caption>
+<thead><tr><th>Type</th><th>Aspect morphologique</th></tr></thead>
+<tbody>
+<tr><td>Type 1</td><td>Normal : radicelles ventrales/dorsales et espace sous-arachnoïdien intacts</td></tr>
+<tr><td>Type 2</td><td>Pseudoméningocèle présente, radicelles intactes traversant la cavité</td></tr>
+<tr><td>Type 3</td><td>Avulsion sélective de la radicelle ventrale (motrice)</td></tr>
+<tr><td>Type 4</td><td>Avulsion sélective de la radicelle dorsale (sensitive)</td></tr>
+<tr><td>Type 5</td><td>Avulsion complète des 2 radicelles avec pseudoméningocèle</td></tr>
+<tr><td>Type 6</td><td>Avulsion complète des 2 radicelles sans pseudoméningocèle (« avulsion sèche »)</td></tr>
+</tbody>
+</table>
+<div class="must-know">Nagano : Gold Standard, pose l'indication directe de transfert nerveux (types 5 et 6).</div>
+<div class="card">
+<h3>Classification fonctionnelle des muscles de l'épaule de Goldner (J.L. Goldner, 1988)</h3>
+<ul class="tech-list">
+<li><span>Principe</span> : répartition des muscles de l'épaule en 4 groupes fonctionnels</li>
+<li><span>Groupes</span>
+<ul>
+<li><span>Groupe 1 (moteurs primaires)</span> : deltoïde, supra-épineux (abduction/élévation)</li>
+<li><span>Groupe 2 (stabilisateurs coiffe/rotateurs)</span> : infra-épineux, sous-scapulaire, petit rond</li>
+<li><span>Groupe 3 (abaisseurs de tête)</span> : grand dorsal, grand pectoral, grand rond</li>
+<li><span>Groupe 4 (fixateurs de la scapula)</span> : trapèze, rhomboïdes, serratus anterior, élévateur de la scapula</li>
+</ul>
+</li>
+<li><span>Valeur décisionnelle</span> : bilan préopératoire des transferts tendineux palliatifs à l'épaule</li>
+</ul>
+</div>
+</section>
+
+<section id="sec-clinique">
+<div class="section-header"><h2>Examen clinique</h2></div>
+<div class="card">
+<h3>Bilan initial et vasculaire</h3>
+<ul class="tech-list">
+<li><span>Examen général</span> : rétablissement vital prioritaire (75 % de polytraumatismes)</li>
+<li><span>Bilan vasculaire</span>
+<ul>
+<li>Pouls comparatifs et tension artérielle</li>
+<li>Doppler ou angio-TDM si suspicion d'atteinte axillaire/sous-clavière (20 % des cas ; Sturm et Perry, 1987)</li>
+</ul>
+</li>
+</ul>
+</div>
+<table>
+<caption>Examen moteur et sensitif méthodique, de C5 à T1</caption>
+<thead><tr><th>Racine</th><th>Motricité</th><th>Réflexe</th><th>Sensibilité</th></tr></thead>
+<tbody>
+<tr><td>C5</td><td>Abduction de l'épaule (deltoïde, axillaire) ; rotation externe (infraspinatus)</td><td>Bicipital</td><td>Moignon de l'épaule</td></tr>
+<tr><td>C6</td><td>Flexion du coude (biceps, musculocutané) ; extension du poignet (ECRL, radial)</td><td>Styloradial</td><td>Thénar, 1er-2ème doigts</td></tr>
+<tr><td>C7</td><td>Extension du coude (triceps) ; extenseurs des doigts (radial)</td><td>Tricipital</td><td>3ème doigt</td></tr>
+<tr><td>C8</td><td>Flexion des doigts (FDP/FDS, médian/ulnaire)</td><td>—</td><td>4ème-5ème doigts, bord médial de la main</td></tr>
+<tr><td>T1</td><td>Intrinsèques de la main (interosseux, ulnaire)</td><td>—</td><td>Face médiale de l'avant-bras</td></tr>
+</tbody>
+</table>
+<table>
+<caption>Diagnostic topographique : pré-ganglionnaire vs post-ganglionnaire</caption>
+<thead><tr><th>Signe</th><th>Pré-ganglionnaire</th><th>Post-ganglionnaire</th></tr></thead>
+<tbody>
+<tr><td>Syndrome de Claude-Bernard-Horner (T1)</td><td>Présent : pathognomonique d'avulsion T1 (ptosis, myosis, énophtalmie)</td><td>Absent (lésion distale aux rameaux communicants)</td></tr>
+<tr><td>Serratus anterior / thoracique long (C5-C7)</td><td>Paralysé (scapula alata)</td><td>Conservé (branche née de la racine)</td></tr>
+<tr><td>Rhomboïdes / dorsal de la scapula (C5)</td><td>Paralysés (déficit de rétraction scapulaire)</td><td>Conservés</td></tr>
+<tr><td>Muscles paraspinaux cervicaux</td><td>Dénervés/atrophiés (atteinte du rameau dorsal)</td><td>Intacts</td></tr>
+<tr><td>Signe de Hoffman-Tinel cervical</td><td>Négatif au cou (pas de neurome cervical)</td><td>Positif au creux supraclaviculaire (paresthésies)</td></tr>
+</tbody>
+</table>
+<div class="trap">
+<div class="trap-title">⚠ Piège</div>
+<ul class="tech-list">
+<li>Rhomboïdes actifs malgré une avulsion C5 possible (plexus pré-fixé, contribution de C4)</li>
+</ul>
+</div>
+<div class="card">
+<h3>Tests spécifiques, éponymes et valeur diagnostique</h3>
+<ul class="tech-list">
+<li><span>Signe de Hoffman-Tinel</span>
+<ul>
+<li>Percussion supraclaviculaire déclenchant une paresthésie (neurome post-ganglionnaire)</li>
+<li>Progression distale = régénération</li>
+<li>Sensibilité/spécificité non chiffrées dans la source</li>
+</ul>
+</li>
+<li><span>Test du grand dentelé</span>
+<ul>
+<li>Poussée murale révélant la scapula alata</li>
+<li>Signe d'atteinte pré-ganglionnaire du thoracique long (C5-C7)</li>
+</ul>
+</li>
+<li><span>Douleurs neuropathiques</span>
+<ul>
+<li>Douleurs de déafférentation</li>
+<li>Très évocatrices d'avulsion radiculaire</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="card">
+<h3>Diagnostics différentiels</h3>
+<ul class="tech-list">
+<li><span>Lésions isolées de nerfs périphériques</span> : axillaire (post-luxation d'épaule), suprascapulaire, musculocutané</li>
+<li><span>Rupture de coiffe</span> : pseudo-paralysie avec ENMG normal</li>
+<li><span>Radiculopathie cervicale discale</span> : mono-radiculaire, sans traumatisme de haute énergie</li>
+</ul>
+</div>
+</section>
+
+<section id="sec-paraclinique">
+<div class="section-header"><h2>Imagerie et examens paracliniques</h2></div>
+<div class="card">
+<h3>Radiographies standards : incidences de débrouillage</h3>
+<ul class="tech-list">
+<li><span>Rachis cervical</span> : fractures des processus transverses/articulaires</li>
+<li><span>Thorax (inspiration/expiration)</span> : surélévation du diaphragme (paralysie phrénique C3-C5)</li>
+<li><span>Ceinture scapulaire</span> : fractures de clavicule, scapula, 1ère côte ; dissociation scapulo-thoracique</li>
+</ul>
+</div>
+<div class="card">
+<h3>Examen de référence (Gold Standard) : myélographie et myélo-TDM</h3>
+<ul class="tech-list">
+<li><span>Place et timing (Nagano et al., 1989)</span>
+<ul>
+<li>Gold Standard pour les avulsions radiculaires pré-ganglionnaires</li>
+<li>Réalisé à 3–4 semaines</li>
+</ul>
+</li>
+<li><span>Signes directs (Nagano et al., 1989)</span>
+<ul>
+<li>Oblitération des radicelles ventrales/dorsales</li>
+<li>Effacement ou vacuole du ganglion spinal</li>
+</ul>
+</li>
+<li><span>Signes indirects</span>
+<ul>
+<li>Pseudoméningocèle traumatique (extravasation de LCR)</li>
+<li>Dénervation des muscles paraspinaux cervicaux</li>
+</ul>
+</li>
+<li><span>Limites (Nagano et al., 1989)</span> : examen invasif
+<ul>
+<li><span>Faux positifs</span> : pseudoméningocèle avec radicelles fonctionnelles (Nagano type 2)</li>
+<li><span>Faux négatifs</span> : avulsion sèche (Nagano type 6)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="card">
+<h3>IRM et myélo-IRM (FIESTA / CISS 3D)</h3>
+<ul class="tech-list">
+<li><span>Place et protocole</span> : non invasif ; T1, T2 et myélo-IRM 3D</li>
+<li><span>Apport diagnostique</span>
+<ul>
+<li><span>Avulsions et pseudoméningocèles</span> : visualisation</li>
+<li><span>Bilan post-ganglionnaire</span> : continuité, neuromes, hématomes</li>
+<li><span>Dénervation musculaire</span> : hypersignal T2 précoce, infiltration T1</li>
+</ul>
+</li>
+<li><span>Limites</span>
+<ul>
+<li>Discrimination radicelle ventrale/dorsale inférieure au myélo-TDM</li>
+<li>Artefacts métalliques</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="card">
+<h3>Bilan vasculaire (angio-TDM, angio-IRM, artériographie)</h3>
+<ul class="tech-list">
+<li><span>Indications</span>
+<ul>
+<li>Atteinte infraclaviculaire</li>
+<li>Abolition des pouls</li>
+<li>Avant transfert musculaire libre (FFMT gracilis)</li>
+</ul>
+</li>
+<li><span>Objectif</span>
+<ul>
+<li>Perméabilité des artères axillaire/sous-clavière</li>
+<li>Viabilité des vaisseaux receveurs (tronc thoraco-acromial)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="card">
+<h3>Bilan électrophysiologique (ENMG / EMG)</h3>
+<ul class="tech-list">
+<li><span>Chronologie</span> : obligatoire à 3–4 semaines (délai de la dégénérescence wallérienne)</li>
+<li><span>EMG à l'aiguille</span>
+<ul>
+<li>Fibrillations au repos (dénervation motrice)</li>
+<li>Absence de potentiels d'unité motrice (PUM)</li>
+</ul>
+</li>
+<li><span>Signe pathognomonique (Trojaborg, 1994)</span>
+<ul>
+<li><span>SNAP préservé en territoire insensible</span> : avulsion pré-ganglionnaire (ganglion conservé)</li>
+<li><span>SNAP aboli</span> : lésion post-ganglionnaire (rupture/étirement)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="must-know">SNAP (potentiel d'action nerveux sensitif) préservé en territoire insensible = avulsion pré-ganglionnaire.</div>
+<div class="card">
+<h3>Explorations peropératoires</h3>
+<ul class="tech-list">
+<li><span>Potentiels d'action nerveux (PAN/NAP) (Kline et Hudson, 1993)</span> : évaluation des neuromes
+<ul>
+<li><span>PAN présent</span> : neurolyse</li>
+<li><span>PAN absent</span> : résection-greffe</li>
+</ul>
+</li>
+<li><span>PESS/PEM (potentiels évoqués somesthésiques/moteurs)</span> : confirmation de la continuité médullaire</li>
+<li><span>Choline acétyltransférase (ChAT) (Engel et al., 1980)</span>
+<ul>
+<li><span>Principe</span> : dosage enzymatique pour différencier fascicules moteurs et sensitifs</li>
+<li><span>Statut</span> : controversé (Vathana et al., 2014)</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+<section id="sec-traitement-nerf">
+<div class="section-header"><h2>Traitement : principes, timing, chirurgie nerveuse primaire et transferts nerveux</h2></div>
+<div class="card">
+<h3>Buts et hiérarchie fonctionnelle de restauration</h3>
+<ul class="tech-list">
+<li><span>Objectifs généraux</span>
+<ul>
+<li>Membre supérieur utile, stable et indolore</li>
+<li>Restauration motrice proximale prioritaire chez l'adulte</li>
+</ul>
+</li>
+<li><span>Hiérarchie séquentielle des priorités</span>
+<ul>
+<li><span>Priorité 1</span> : flexion active du coude (biceps et brachialis)</li>
+<li><span>Priorité 2</span> : stabilité, abduction et rotation externe de l'épaule (nerfs suprascapulaire et axillaire)</li>
+<li><span>Priorité 3</span> : sensibilité protectrice de la main (territoire du nerf médian)</li>
+<li><span>Priorité 4</span> : extension du poignet et des doigts (nerf radial)</li>
+<li><span>Priorité 5</span> : préhension et flexion des doigts (avulsions complexes / FFMT)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="decision">
+<div class="decision-title">🎯 Timing opératoire et calendrier décisionnel</div>
+<figure class="dsm-figure">
+<svg viewBox="0 0 1000 506" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:'Inter',sans-serif">
+<defs><marker id="algoArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="var(--blue)"/></marker></defs>
+<path d="M500.0,70.0 L500.0,116.0" fill="none" stroke="var(--blue)" stroke-width="1.6" marker-end="url(#algoArrow)"/>
+<path d="M500.0,151.0 L500.0,167.0 L304.5,167.0 L304.5,223.0" fill="none" stroke="var(--blue)" stroke-width="1.6" marker-end="url(#algoArrow)"/>
+<rect x="330.1" y="158.0" width="144.4" height="15" rx="3" fill="#f5f6f8" stroke="var(--rule)" stroke-width="1"/>
+<text x="402.2" y="169.0" text-anchor="middle" font-size="9.5" fill="#1e272e">plaie franche/vasculaire</text>
+<path d="M500.0,151.0 L500.0,187.0 L493.5,187.0 L493.5,223.0" fill="none" stroke="var(--blue)" stroke-width="1.6" marker-end="url(#algoArrow)"/>
+<rect x="394.4" y="178.0" width="99.6" height="15" rx="3" fill="#f5f6f8" stroke="var(--rule)" stroke-width="1"/>
+<text x="444.2" y="189.0" text-anchor="middle" font-size="9.5" fill="#1e272e">plaie délabrante</text>
+<path d="M500.0,151.0 L500.0,207.0 L689.0,207.0 L689.0,223.0" fill="none" stroke="var(--blue)" stroke-width="1.6" marker-end="url(#algoArrow)"/>
+<rect x="516.7" y="198.0" width="155.6" height="15" rx="3" fill="#f5f6f8" stroke="var(--rule)" stroke-width="1"/>
+<text x="594.5" y="209.0" text-anchor="middle" font-size="9.5" fill="#1e272e">traction fermée/arme à feu</text>
+<path d="M689.0,273.0 L689.0,289.0 L415.0,289.0 L415.0,325.0" fill="none" stroke="var(--blue)" stroke-width="1.6" marker-end="url(#algoArrow)"/>
+<rect x="537.0" y="280.0" width="30.0" height="15" rx="3" fill="#f5f6f8" stroke="var(--rule)" stroke-width="1"/>
+<text x="552.0" y="291.0" text-anchor="middle" font-size="9.5" fill="#1e272e">oui</text>
+<path d="M689.0,273.0 L689.0,309.0 L585.0,309.0 L585.0,325.0" fill="none" stroke="var(--blue)" stroke-width="1.6" marker-end="url(#algoArrow)"/>
+<rect x="573.2" y="300.0" width="127.6" height="15" rx="3" fill="#f5f6f8" stroke="var(--rule)" stroke-width="1"/>
+<text x="637.0" y="311.0" text-anchor="middle" font-size="9.5" fill="#1e272e">non : étirement fermé</text>
+<path d="M415.0,375.0 L415.0,391.0 L500.0,391.0 L500.0,421.0" fill="none" stroke="var(--blue)" stroke-width="1.6" marker-end="url(#algoArrow)"/>
+<path d="M585.0,375.0 L585.0,391.0 L500.0,391.0 L500.0,421.0" fill="none" stroke="var(--blue)" stroke-width="1.6" marker-end="url(#algoArrow)"/>
+<rect x="428.5" y="20.0" width="143.0" height="50.0" rx="6" fill="var(--blue)" stroke="var(--blue)" stroke-width="1.5"/>
+<text x="500.0" y="41.5" text-anchor="middle" font-size="11" font-weight="700" fill="white">Lésion traumatique</text>
+<text x="500.0" y="56.5" text-anchor="middle" font-size="11" font-weight="700" fill="white">du plexus brachial</text>
+<rect x="419.0" y="116.0" width="162.0" height="35.0" rx="6" fill="#fdfefe" stroke="var(--c-key)" stroke-width="1.5"/>
+<text x="500.0" y="137.5" text-anchor="middle" font-size="11" font-weight="600" fill="#1e272e">Mécanisme lésionnel ?</text>
+<rect x="223.5" y="223.0" width="162.0" height="50.0" rx="6" fill="#fff5f0" stroke="#d35400" stroke-width="1.5"/>
+<text x="304.5" y="244.5" text-anchor="middle" font-size="11" font-weight="600" fill="#1e272e">Exploration immédiate</text>
+<text x="304.5" y="259.5" text-anchor="middle" font-size="11" font-weight="600" fill="#1e272e">&lt; 8 jours</text>
+<rect x="415.5" y="223.0" width="156.0" height="50.0" rx="6" fill="#fff5f0" stroke="#d35400" stroke-width="1.5"/>
+<text x="493.5" y="244.5" text-anchor="middle" font-size="11" font-weight="600" fill="#1e272e">Exploration subaiguë</text>
+<text x="493.5" y="259.5" text-anchor="middle" font-size="11" font-weight="600" fill="#1e272e">3 à 4 semaines</text>
+<rect x="601.5" y="223.0" width="175.0" height="50.0" rx="6" fill="#fdfefe" stroke="var(--c-key)" stroke-width="1.5"/>
+<text x="689.0" y="244.5" text-anchor="middle" font-size="11" font-weight="600" fill="#1e272e">Suspicion d'avulsion</text>
+<text x="689.0" y="259.5" text-anchor="middle" font-size="11" font-weight="600" fill="#1e272e">(clinique, myélo-TDM) ?</text>
+<rect x="345.0" y="325.0" width="140.0" height="50.0" rx="6" fill="#fff5f0" stroke="#d35400" stroke-width="1.5"/>
+<text x="415.0" y="346.5" text-anchor="middle" font-size="11" font-weight="600" fill="#1e272e">Chirurgie précoce</text>
+<text x="415.0" y="361.5" text-anchor="middle" font-size="11" font-weight="600" fill="#1e272e">2 à 3 mois</text>
+<rect x="515.0" y="325.0" width="140.0" height="50.0" rx="6" fill="#d5f5e3" stroke="#1e8449" stroke-width="1.5"/>
+<text x="585.0" y="346.5" text-anchor="middle" font-size="11" font-weight="600" fill="#1e272e">Attente + ENMG</text>
+<text x="585.0" y="361.5" text-anchor="middle" font-size="11" font-weight="600" fill="#1e272e">3 à 6 mois</text>
+<rect x="419.0" y="421.0" width="162.0" height="65.0" rx="6" fill="#fef9e7" stroke="#b7950b" stroke-width="1.5"/>
+<text x="500.0" y="442.5" text-anchor="middle" font-size="11" font-weight="600" fill="#7d6608">Chirurgie nerveuse</text>
+<text x="500.0" y="457.5" text-anchor="middle" font-size="11" font-weight="600" fill="#7d6608">primaire avant 6 mois</text>
+<text x="500.0" y="472.5" text-anchor="middle" font-size="11" font-weight="600" fill="#7d6608">(max 9 à 12 mois)</text>
+</svg>
+<figcaption>Algorithme décisionnel : timing opératoire d'une lésion traumatique du plexus brachial de l'adulte.</figcaption>
+</figure>
+</div>
+<div class="card">
+<h3>Calendrier opératoire</h3>
+<ul class="tech-list">
+<li><span>Urgence immédiate (&lt; 8 jours)</span>
+<ul>
+<li>Plaies pénétrantes franches par objet tranchant (section nette)</li>
+<li>Urgence vasculaire associée</li>
+</ul>
+</li>
+<li><span>Exploration subaiguë (3 à 4 semaines)</span>
+<ul>
+<li>Plaies délabrantes</li>
+<li>Délimitation de la nécrose nerveuse</li>
+</ul>
+</li>
+<li><span>Période d'attente et d'observation (2 à 6 mois)</span> : traumatismes fermés par traction et armes à feu (éléments souvent en continuité)
+<ul>
+<li><span>Suspicion d'avulsion (myélo-TDM/clinique)</span> : chirurgie précoce à 2–3 mois</li>
+<li><span>Étirement fermé sans avulsion d'emblée</span> : attente de 3 à 6 mois, avec surveillance ENMG</li>
+<li><span>Limite temporelle</span>
+<ul>
+<li><span>Délai</span> : chirurgie nerveuse primaire impérative avant 6 mois (max 9–12 mois)</li>
+<li><span>Au-delà</span> : atrophie irréversible des plaques motrices</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="card">
+<h3>Chirurgie nerveuse primaire</h3>
+<ul class="tech-list">
+<li><span>Neurolyse (Kline et Hudson, 1993)</span>
+<ul>
+<li><span>Indication</span> : neurome en continuité avec PAN (potentiel d'action nerveux) présent</li>
+<li><span>Principe</span> : libération épinervale sans section fasciculaire</li>
+</ul>
+</li>
+<li><span>Résection du neurome et greffe nerveuse autologue (Millesi, 1977 ; Kline et Hudson, 1993)</span>
+<ul>
+<li><span>Indication</span> : neurome non conducteur (PAN absent) ou rupture post-ganglionnaire</li>
+<li><span>Principe</span>
+<ul>
+<li>Résection jusqu'en zone saine</li>
+<li>Pontage en câbles (nerf sural) depuis un moignon proximal (C5 ou C6)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="card">
+<h3>Transferts nerveux (neurotisations)</h3>
+<ul class="tech-list">
+<li><span>Principe (Narakas, 1981)</span>
+<ul>
+<li><span>Connexion</span> : nerf donneur sain sur le bout distal dénervé, au plus près du muscle</li>
+<li><span>Indication</span> : avulsion pré-ganglionnaire ou absence de moignon proximal</li>
+</ul>
+</li>
+<li><span>Transferts clés validés chez l'adulte</span> : cf. tableau ci-dessous</li>
+</ul>
+</div>
+<table>
+<caption>Transferts nerveux clés validés chez l'adulte</caption>
+<thead><tr><th>Transfert</th><th>Nerf donneur</th><th>Nerf receveur</th></tr></thead>
+<tbody>
+<tr><td>Oberlin (Oberlin et al., 1994)</td><td>Fascicule moteur du nerf ulnaire</td><td>Branche du biceps</td></tr>
+<tr><td>Leechavengvongs (Leechavengvongs et al., 1998, 2003)</td><td>Branche motrice du triceps</td><td>Nerf axillaire (deltoïde)</td></tr>
+<tr><td>Nerf accessoire spinal XI (Narakas, 1981)</td><td>Branche externe du XI</td><td>Nerf suprascapulaire</td></tr>
+<tr><td>Nerfs intercostaux T3-T6 (Nagano et Tsuyama, 1972)</td><td>Rameaux moteurs intercostaux</td><td>Nerf musculocutané</td></tr>
+</tbody>
+</table>
+<div class="trap">
+<div class="trap-title">⚠ Piège : C7 contralatéral</div>
+<ul class="tech-list">
+<li>Prôné en Asie (Gu et al., 1998)</li>
+<li>Abandonné chez l'adulte par la Mayo Clinic (Sammer et al., 2012)
+<ul>
+<li>Échecs moteurs</li>
+<li>Risque sur le membre sain</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+<section id="sec-traitement-palliatif">
+<div class="section-header"><h2>Traitement : chirurgie palliative, FFMT et arthrodèse</h2></div>
+<div class="card">
+<h3>Indications de la chirurgie palliative</h3>
+<ul class="tech-list">
+<li><span>Délais dépassés (&gt; 12–18 mois)</span>
+<ul>
+<li>Atrophie irréversible des plaques motrices</li>
+<li>Toute réinnervation nerveuse directe impossible</li>
+</ul>
+</li>
+<li><span>Échecs des reconstructions nerveuses</span> : absence de récupération motrice utile (M0–M2) après neurolyse, greffe ou transfert</li>
+</ul>
+</div>
+<div class="card">
+<h3>Double transfert musculaire libre fonctionnel (FFMT gracilis)</h3>
+<ul class="tech-list">
+<li><span>Principe (Doi et al., 1995)</span> : transfert microvasculaire du gracilis libre pour restaurer la préhension dans les avulsions pan-plexiques C5–T1</li>
+<li><span>Séquence du protocole Doi / Mayo</span>
+<ul>
+<li><span>1er FFMT (gracilis I)</span>
+<ul>
+<li>Réinnervé par les intercostaux moteurs (T3–T5)</li>
+<li>Pour la flexion des doigts et la sensibilité de la main (Doi et al., 1995)</li>
+</ul>
+</li>
+<li><span>2ème FFMT (gracilis II)</span>
+<ul>
+<li>Réinnervé par le nerf accessoire spinal (XI)</li>
+<li>Pour l'extension du poignet et des doigts (Doi et al., 2000)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span>Vaisseaux receveurs (Bishop, 1993)</span> : tronc thoraco-acromial ou artère axillaire</li>
+<li><span>Rééducation de Doi (Doi et al., 2008)</span>
+<ul>
+<li>Mobilisation passive dès J7 postopératoire</li>
+<li>Par pression du gracilis au coude</li>
+<li>Ténolyses réduites de 26 % à 0 %</li>
+</ul>
+</li>
+</ul>
+</div>
+<table>
+<caption>Transferts musculaires et tendineux régionaux</caption>
+<thead><tr><th>Objectif</th><th>Transfert</th><th>Principe</th></tr></thead>
+<tbody>
+<tr><td>Flexion du coude</td><td>Flexorplastie de Steindler (Steindler, 1918)</td><td>Transposition proximale des épicondyliens médiaux sur l'humérus ; nécessite des fléchisseurs M4</td></tr>
+<tr><td>Flexion du coude</td><td>Grand pectoral / grand dorsal (Clark, 1946 ; Schottstaedt et al., 1955)</td><td>Transposition pédiculée au coude pour suppléer le biceps</td></tr>
+<tr><td>Épaule : rotation externe</td><td>Trapèze inférieur (Elhassan et al., 2014)</td><td>Rallongé par greffe d'ischio-jambiers sur l'infraspinatus ; rotation externe active</td></tr>
+<tr><td>Épaule : abduction/rotation</td><td>Grand dorsal / grand pectoral (Saha, 1967 ; Goldner, 1988)</td><td>Transposition sur le grand tubercule</td></tr>
+</tbody>
+</table>
+<div class="card">
+<h3>Arthrodèse gléno-humérale</h3>
+<ul class="tech-list">
+<li><span>Indications</span>
+<ul>
+<li>Épaule paralytique instable/douloureuse</li>
+<li>Échec des transferts</li>
+<li>Exige des fixateurs de la scapula (trapèze, dentelé) M4</li>
+</ul>
+</li>
+<li><span>Position fonctionnelle de fusion (Richards et al., 1993)</span>
+<ul>
+<li><span>Abduction</span> : 20° à 30°</li>
+<li><span>Flexion antérieure</span> : 30°</li>
+<li><span>Rotation interne</span> : 30°</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+<section id="sec-douleur">
+<div class="section-header"><h2>Prise en charge des douleurs neuropathiques de déafférentation</h2></div>
+<div class="card">
+<h3>Douleurs neuropathiques de déafférentation</h3>
+<ul class="tech-list">
+<li><span>Caractéristiques</span>
+<ul>
+<li>Douleurs d'avulsion intenses (brûlure, broiement)</li>
+<li>Réfractaires aux antalgiques habituels</li>
+</ul>
+</li>
+<li><span>Traitement médical</span>
+<ul>
+<li>Anti-épileptiques : gabapentine, prégabaline</li>
+<li>Tricycliques</li>
+</ul>
+</li>
+<li><span>Traitement neurochirurgical (Nashold et Ostdahl, 1979 ; Thomas et Jones, 1994)</span>
+<ul>
+<li><span>Geste</span> : DREZ-tomie (Dorsal Root Entry Zone)</li>
+<li><span>Indication</span> : douleurs invalidantes résistantes</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+<section id="sec-complications">
+<div class="section-header"><h2>Complications</h2></div>
+<div class="card">
+<h3>Complications précoces et morbidité chirurgicale</h3>
+<ul class="tech-list">
+<li><span>Complications générales</span> : hématome, infection de site opératoire, risques anesthésiques chez le polytraumatisé</li>
+<li><span>Brèche pleurale / pneumothorax (Nagano et Tsuyama, 1972)</span>
+<ul>
+<li>Risque spécifique lors du prélèvement des nerfs intercostaux (T3–T6)</li>
+<li>Impose une radiographie thoracique</li>
+<li>Drainage si besoin</li>
+</ul>
+</li>
+<li><span>Morbidité des sites donneurs de transferts nerveux</span>
+<ul>
+<li><span>Oberlin, ulnaire (Oberlin et al., 1994)</span> : hyposensibilité transitoire ou parésie des intrinsèques si prélèvement &gt; 10–15 % des fibres</li>
+<li><span>Leechavengvongs, triceps (Leechavengvongs et al., 1998)</span> : rares déficits de force en extension du coude</li>
+<li><span>Nerf accessoire XI (Narakas, 1981)</span> : faiblesse partielle du trapèze inférieur</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="card">
+<h3>Complications tardives et séquelles</h3>
+<ul class="tech-list">
+<li><span>Échec de réinnervation (M0–M2)</span>
+<ul>
+<li><span>Facteurs</span> : délai opératoire tardif (&gt; 6 mois), âge (&gt; 40 ans), longueur des greffes</li>
+<li><span>Conséquence</span> : impose la chirurgie palliative</li>
+</ul>
+</li>
+<li><span>Raideurs articulaires et rétractions</span>
+<ul>
+<li>Enraidissement du coude</li>
+<li>Flessum et rotation interne de l'épaule, par déséquilibre musculaire</li>
+<li>Prévention par orthèses et kinésithérapie passive</li>
+</ul>
+</li>
+<li><span>Douleurs neuropathiques de déafférentation (Nashold et Ostdahl, 1979)</span>
+<ul>
+<li>Douleurs chroniques sévères d'avulsion</li>
+<li>Traitement médical, ou DREZ-tomie en cas d'échec</li>
+</ul>
+</li>
+<li><span>Complications palliatives spécifiques</span>
+<ul>
+<li><span>FFMT gracilis (Doi et al., 2008)</span> : thrombose microvasculaire ou adhérences tendineuses nécessitant une ténolyse</li>
+<li><span>Arthrodèse gléno-humérale (Richards et al., 1993)</span> : pseudarthrose ou faillite du matériel de fixation</li>
+</ul>
+</li>
+<li><span>SDRC (syndrome douloureux régional complexe)</span> : type II fréquemment associé</li>
+</ul>
+</div>
+</section>
+
+<section id="sec-conclusion">
+<div class="section-header"><h2>Conclusion et pronostic</h2></div>
+<div class="card">
+<h3>Facteurs pronostiques majeurs chez l'adulte</h3>
+<ul class="tech-list">
+<li><span>Âge du patient</span> : facteur déterminant, chute drastique de la régénération nerveuse au-delà de 40 ans</li>
+<li><span>Délai traumatisme-chirurgie</span> : dégradation pronostique majeure au-delà de 6 mois, par atrophie irréversible des plaques motrices</li>
+<li><span>Niveau anatomique de la lésion</span> : pronostic plus réservé pour les avulsions pré-ganglionnaires que pour les ruptures post-ganglionnaires</li>
+<li><span>Énergie du traumatisme</span> : dégâts de haute énergie avec atteintes vasculaires ou musculaires assombrissent le pronostic</li>
+<li><span>Longueur des greffes</span> : récupération inversement proportionnelle à la longueur des greffes autologues en câbles</li>
+</ul>
+</div>
+<div class="card">
+<h3>Perspectives fonctionnelles et objectifs d'autonomie</h3>
+<ul class="tech-list">
+<li><span>Objectifs réalistes</span>
+<ul>
+<li><span>Membre « utile »</span> : stabilité de l'épaule, flexion active du coude, sensibilité protectrice</li>
+<li><span>Restitution ad integrum</span> : non visée</li>
+</ul>
+</li>
+<li><span>Apport des neurotisations modernes (Doi et al., 1995, 2000)</span>
+<ul>
+<li>Transferts nerveux distaux (Oberlin, Leechavengvongs)</li>
+<li>Transferts musculaires libres (FFMT gracilis)</li>
+<li>Prise en charge des avulsions pan-plexiques transformée</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+</div>
+
+<footer style="margin-top:30px;padding-top:10px;border-top:1px solid #ddd;font-size:.72rem;color:#777;text-align:center">
+  27 septembre 2026 · Préparation DES Orthopédie-Traumatologie
+</footer>
+
+</main>
+
+<script>
+window.addEventListener("scroll",()=>{const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;document.getElementById("progress").style.width=(h>0 ? (document.documentElement.scrollTop/h)*100 : 0)+"%";},{passive:true});
+
+const sidebar=document.getElementById("sidebar");
+const sidebarToggle=document.getElementById("toggle-sidebar");
+sidebarToggle.addEventListener("click",()=>{sidebar.classList.toggle("collapsed");document.body.classList.toggle("sidebar-hidden");});
+
+const sections=Array.from(document.querySelectorAll("#dsm-content section")).filter(s=>!s.classList.contains("plan-redaction-block"));
+const sideNav=document.getElementById("sidebar-nav");
+
+sections.forEach((section,i)=>{
+  if(!section.id) section.id="sec"+(i+1);
+  const title=section.querySelector("h2")?.innerText.trim()||("Section "+(i+1));
+  const secNumDisplay=String(i+1).padStart(2,"0");
+  const li=document.createElement("li");
+  li.innerHTML=`<a href="#${section.id}"><span class="marker">●</span><span class="label">${secNumDisplay}. ${title}</span></a>`;
+  sideNav.appendChild(li);
+
+  const planList=document.getElementById("plan-list");
+  if(planList){
+    const planLi=document.createElement("li");
+    const planA=document.createElement("a");
+    planA.href="#"+section.id;
+    planA.textContent=title;
+    planA.style.cssText="color:inherit;text-decoration:none";
+    planLi.appendChild(planA);
+    planList.appendChild(planLi);
+  }
+});
+
+window.addEventListener("scroll",()=>{
+  const fromTop=window.scrollY+120;
+  document.querySelectorAll(".sidebar-nav a").forEach(link=>{
+    const sec=document.querySelector(link.getAttribute("href"));
+    if(sec){const top=sec.offsetTop,h=sec.offsetHeight;link.classList.toggle("active",top<=fromTop && top+h>fromTop);}
+  });
+},{passive:true});
+
+document.addEventListener("keydown",(e)=>{
+  if(e.ctrlKey && e.key==="b"){e.preventDefault();sidebarToggle.click();}
+});
+</script>
+
+</body>
+</html>
